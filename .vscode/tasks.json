@@ -1,0 +1,34 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile scss - npm",
+            "type": "shell",
+            "command": "${workspaceFolder}/node_modules/.bin/sass",
+            "args": [
+                "--load-path=${workspaceFolder}/bootstrap/scss",
+                "--silence-deprecation=import",
+                "--silence-deprecation=global-builtin",
+                "--quiet-deps",
+                "${workspaceFolder}/custom.scss",
+                "${workspaceFolder}/custom.css"
+            ],
+            "problemMatcher": [],
+        },
+        {
+            "label": "autoprefix css",
+            "type": "shell",
+            "command": "${workspaceFolder}/node_modules/.bin/postcss",
+            "args": [
+                "--replace",
+                "custom.css",
+                "-use",
+                "autoprefixer",
+                "--map"
+            ],
+            "problemMatcher": [],
+        }
+    ]
+}
