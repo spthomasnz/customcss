@@ -1,0 +1,61 @@
+@use "sass:map";
+
+@import "bootstrap";
+
+.filter-table {
+  border-collapse: separate;
+  border-spacing: 0 map-get($spacers, 3);
+  @extend .mb-0;
+
+  th,
+  td {
+    @extend .border-top;
+    @extend .border-bottom;
+    @extend .align-middle;
+  }
+
+
+  thead tr {
+    @extend .text-center;
+  }
+
+  tr {
+    @extend .align-middle;
+  }
+
+  th:first-child,
+  td:first-child {
+    @extend .rounded-start;
+    @extend .border-start;
+  }
+
+  th:last-child,
+  td:last-child {
+    @extend .border-end;
+    @extend .rounded-end;
+  }
+
+
+
+}
+
+#sort-table {
+  @extend .filter-table;
+}
+
+
+.width-selectable {
+  transition: max-width 1s;
+}
+
+.full-width {
+  max-width: 100% !important;
+}
+
+#settings-dropdown {
+  .active {
+    .bi-check {
+      display: block !important;
+    }
+  }
+}
