@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Compile scss - npm",
+            "label": "compile scss",
             "type": "shell",
             "command": "${workspaceFolder}/node_modules/.bin/sass",
             "args": [
@@ -16,6 +16,7 @@
                 "${workspaceFolder}/custom.css"
             ],
             "problemMatcher": [],
+            
         },
         {
             "label": "autoprefix css",
@@ -28,6 +29,16 @@
                 "autoprefixer",
                 "--map"
             ],
+            "problemMatcher": [],
+        },
+        {
+            "label": "compile + autoprefix",
+            "type": "shell",
+            "dependsOn": [
+                "compile scss",
+                "autoprefix css"
+            ],
+            "dependsOrder": "sequence",
             "problemMatcher": [],
         }
     ]
